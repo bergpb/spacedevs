@@ -1,125 +1,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <section class="uk-section uk-section-muted uk-section-large">
-    <div class="uk-container uk-container-large">
-      <div>
-        <h2 class="uk-margin-large-bottom">
-          <span uk-icon="arrow-left"></span>
-          Cursos
-        </h2>
-      </div>
-      <div class="uk-child-width-1-4@m uk-grid-match" id="courses" uk-grid>
+<section class="uk-section uk-section-muted uk-section-large">
+  <div class="uk-container uk-container-large">
+    <div>
+      <h2 class="uk-margin-large-bottom">
+        <span uk-icon="arrow-left"></span>
+        Cursos
+      </h2>
+    </div>
+    <div class="uk-child-width-1-4@m uk-grid-match" id="courses" uk-grid>
+      {% for course in courses %}
         <div>
           <a class="uk-display-block uk-link-toggle uk-card uk-card-large uk-card-default uk-card-body uk-border-rounded"
-            href="curso.html">
+            href="{{ url_for('course_page.single', slug=course.slug) }}">
             <div>
               <h3 class="uk-card-title uk-margin-remove-bottom">
                 <div class="uk-circle uk-background-danger uk-margin-medium-bottom"></div>
-                Incorporando Docker em projetos Python
+                {{ course.name  }}
               </h3>
             </div>
             <div class="uk-flex uk-flex-between course-meta">
               <div class="more uk-text-left">
                 <div>
                   <ion-icon name="person-outline"></ion-icon>
-                  Amanda Fanz
+                  {{ course.author.fullname }}
                 </div>
                 <div>
                   <ion-icon name="book-outline"></ion-icon>
-                  40 aulas
+                  {{ course.quote | length }} aulas
                 </div>
                 <div>
                   <ion-icon name="time-outline"></ion-icon>
-                  120 horas
+                  {{ course.duration }} minutos
                 </div>
               </div>
             </div>
           </a>
         </div>
-        <div>
-          <a class="uk-display-block uk-link-toggle uk-card uk-card-large uk-card-default uk-card-body uk-border-rounded"
-            href="curso.html">
-            <div>
-              <h3 class="uk-card-title uk-margin-remove-bottom">
-                <div class="uk-circle uk-background-success uk-margin-medium-bottom"></div>
-                Introdução ao Docker & Docker Compose
-              </h3>
-            </div>
-            <div class="uk-flex uk-flex-between course-meta">
-              <div class="more uk-text-left">
-                <div>
-                  <ion-icon name="person-outline"></ion-icon>
-                  Marcus Pereira
-                </div>
-                <div>
-                  <ion-icon name="book-outline"></ion-icon>
-                  15 aulas
-                </div>
-                <div>
-                  <ion-icon name="time-outline"></ion-icon>
-                  2 horas
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div>
-          <a class="uk-display-block uk-link-toggle uk-card uk-card-large uk-card-default uk-card-body uk-border-rounded"
-            href="curso.html">
-            <div>
-              <h3 class="uk-card-title uk-margin-remove-bottom">
-                <div class="uk-circle uk-background-rose uk-margin-medium-bottom" title="Curso para iniciante">
-                </div>
-                Aprendendo PHP do 0 ao profissional
-              </h3>
-            </div>
-            <div class="uk-flex uk-flex-between course-meta">
-              <div class="more uk-text-left">
-                <div>
-                  <ion-icon name="person-outline"></ion-icon>
-                  Rodrigo Arruda
-                </div>
-                <div>
-                  <ion-icon name="book-outline"></ion-icon>
-                  31 aulas
-                </div>
-                <div>
-                  <ion-icon name="time-outline"></ion-icon>
-                  9 horas
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div>
-          <a class="uk-display-block uk-link-toggle uk-card uk-card-large uk-card-default uk-card-body uk-border-rounded"
-            href="curso.html">
-            <div>
-              <h3 class="uk-card-title uk-margin-remove-bottom">
-                <div class="uk-circle uk-background-primary uk-margin-medium-bottom"></div>
-                Utilizando o Redis em produção
-              </h3>
-            </div>
-            <div class="uk-flex uk-flex-between course-meta">
-              <div class="more uk-text-left">
-                <div>
-                  <ion-icon name="person-outline"></ion-icon>
-                  Felipe Silva
-                </div>
-                <div>
-                  <ion-icon name="book-outline"></ion-icon>
-                  10 aulas
-                </div>
-                <div>
-                  <ion-icon name="time-outline"></ion-icon>
-                  3 horas
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
+      {% endfor %}
     </div>
-  </section>
+  </div>
+</section>
 {% endblock %}
