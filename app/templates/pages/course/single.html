@@ -1,25 +1,33 @@
 {% extends "base.html" %}
 
+{% block css %}
+<link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
+{% endblock %}
+
+
 {% block content %}
 <section class="uk-section uk-section uk-section-muted">
-  <div class="uk-container uk-container-large">
+  <div class="uk-container uk-container-expand">
     <div class="uk-grid-match" uk-grid>
       <div class="uk-width-1-1@m">
-        <div uk-grid>
+        <div uk-grid class="uk-grid-small">
           <div class="uk-width-expand@m">
             <div class="uk-card no-scale uk-card-default uk-border-rounded uk-card-body uk-padding-small">
-              <iframe width="100%" height="700" src="https://www.youtube.com/embed/zP7zPCQOdJk?controls=0"
-                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+              <video src="{{ url_for('static', filename='media/filters.mp4') }}" id="player" controls playsinline></video>
             </div>
           </div>
           <div class="uk-width-1-4@m">
-            <div class="uk-card no-scale uk-card-default uk-border-rounded scroll">
+            <div class="uk-card no-scale uk-card-default scroll">
               <div class="uk-card-body">
                 <ul class="uk-list uk-list-large uk-list-divider">
                   {% for quote in course.quotes %}
                     <li>
-                      {{ quote.title }}
+                      <a onclick="setTime('{{ quote.quote_time }}')" class="uk-link-reset uk-flex uk-flex-between">
+                        <span>{{ quote.title }}</span>
+                        <span>
+                          {{ quote.quote_time | format_time_to_string }}
+                        </span>
+                      </a>
                     </li>
                   {% endfor %}              
                 </ul>
@@ -47,7 +55,7 @@
               <span class="uk-text-meta">
                 <ion-icon name="time-outline"></ion-icon>
                 <span class="uk-text-top">
-                  {{ course.duration }} horas
+                  {{ course.duration }} minutos
                 </span>
               </span>
               <span class="uk-text-meta">
@@ -59,10 +67,18 @@
             </div>         
             
             <div class="uk-button-watch">
-              <a href="aulas.html" class="uk-button uk-width-1-1@m uk-button-primary">
-                <span uk-icon="download"></span>
-                Código Fonte
-              </a>
+              <div class="uk-margin">
+                <a href="aulas.html" class="uk-button uk-width-1-1@m uk-button-secondary">
+                  <span uk-icon="code"></span>
+                  Código Fonte
+                </a>
+              </div>
+              <div class="uk-margin">
+                <a href="aulas.html" class="uk-button uk-width-1-1@m uk-button-danger">
+                  <span uk-icon="download"></span>
+                  Download Curso
+                </a>
+              </div>
             </div>
 
             <div class="meta-labels">
@@ -78,3 +94,25 @@
   </div>
 </section>
 {% endblock %}
+
+
+{% block scripts %}
+<script src="https://cdn.plyr.io/3.6.2/plyr.js"></script>
+<script>
+  window.onload = function() {
+    let player = new Plyr('#player', {
+      autoplay: true,
+    });
+    player.currentTime = parseInt(localStorage.getItem("currentTime") || 0);
+  }
+ 
+  window.onbeforeunload = function(e) {
+    localStorage.setItem("currentTime", player.currentTime);
+  }
+
+  function setTime(seconds) {
+    player.currentTime = seconds;
+  }
+
+</script>
+{%endblock%}
