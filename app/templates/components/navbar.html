@@ -1,11 +1,11 @@
 <div class="uk-background-default">
-  <div class="uk-container uk-container-large">
+  <div class="uk-container uk-container-{{'expand' if request.endpoint == 'course_page.single' else 'large'}}">
     <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
       <div class="uk-navbar-left">
         <a class="uk-navbar-toggle uk-hidden@s" uk-navbar-toggle-icon href=""></a>
 
         <ul class="uk-navbar-nav uk-visible@m">
-          <li class="uk-active"><a href="{{ url_for('home.page') }}">Home</a></li>
+          <li class="{{'uk-active' if request.endpoint == 'home.page' else ''}}"><a href="{{url_for('home.page')}}">Home</a></li>
         </ul>
       </div>
     </nav>
