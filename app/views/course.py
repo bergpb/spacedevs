@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template
 
+from app.models import Course
 
-course = Blueprint("course", __name__, url_prefix="/cursos")
+course = Blueprint("course_page", __name__, url_prefix="/cursos")
 
 
 @course.route("/")
@@ -10,5 +11,6 @@ def catalogue():
 
 
 @course.route("/<slug>")
-def single():
-    return render_template("pages/course/single.html")
+def single(slug):
+    course = Course.query.filter_by(slug=slug).first_or_404()
+    return render_template("pages/course/single.html", course=course)
