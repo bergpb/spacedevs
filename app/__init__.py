@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+
 def create_app():
     app = Flask(__name__)
     FlaskDynaconf(app)
@@ -17,5 +18,5 @@ def create_app():
     admin_registered = Admin(app)
     routes.init_app(app)
     admin.init_app(admin_registered)
-    
+
     return app
