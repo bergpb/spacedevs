@@ -68,13 +68,13 @@
             
             <div class="uk-button-watch">
               <div class="uk-margin">
-                <a href="aulas.html" class="uk-button uk-width-1-1@m uk-button-secondary">
+                <a href="{{ course.source_code_url }}" class="uk-button uk-width-1-1@m uk-button-secondary">
                   <span uk-icon="code"></span>
                   Código Fonte
                 </a>
               </div>
               <div class="uk-margin">
-                <a href="aulas.html" class="uk-button uk-width-1-1@m uk-button-danger">
+                <a href="{{ course.video_url }}" class="uk-button uk-width-1-1@m uk-button-danger">
                   <span uk-icon="download"></span>
                   Download Curso
                 </a>
@@ -82,10 +82,9 @@
             </div>
 
             <div class="meta-labels">
-              <span class="uk-label uk-label-muted">PHP</span>
-              <span class="uk-label uk-label-muted">DOCKER</span>
-              <span class="uk-label uk-label-muted">DOKCER COMPOSE</span>
-              <span class="uk-label uk-label-muted">GIT</span>
+              {% for tag in course.tags %}
+               <span class="uk-label uk-label-muted">{{ tag.name }}</span>
+              {% endfor %}
             </div>
           </div>
         </div>
