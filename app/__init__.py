@@ -13,10 +13,13 @@ def create_app():
 
     db.init_app(app)
 
-    from . import admin, routes
+    from . import admin, routes, filters
 
     admin_registered = Admin(app)
     routes.init_app(app)
     admin.init_app(admin_registered)
+
+    # registered filters
+    app.jinja_env.filters["format_time_to_string"] = filters.convert_time_to_string
 
     return app
