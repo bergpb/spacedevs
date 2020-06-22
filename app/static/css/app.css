@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;500&display=swap");
+* {
+  font-family: "Baloo Thambi 2", cursive !important;
+}
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.site-container {
+  flex: 1;
+}
+.uk-circle.uk-background-danger {
+  border: #df614b 4px solid !important;
+}
+.uk-circle.uk-background-primary {
+  border: #157ef7 4px solid;
+}
+.uk-circle.uk-background-success {
+  border: #3fdbce 4px solid;
+}
+.uk-circle.uk-background-rose {
+  border: #da1460 4px solid;
+}
+#next_courses .uk-card-header.uk-border-danger {
+  border-left: #ff6347 4px solid !important;
+}
+#next_courses .uk-card-header.uk-border-primary {
+  border-left: #157ef7 4px solid !important;
+}
+#next_courses .uk-card-header.uk-border-success {
+  border-left: #3fdbce 4px solid !important;
+}
+#next_courses .uk-card-header.uk-border-rose {
+  border-left: #da1460 4px solid !important;
+}
+.uk-blackground-black-bis {
+  background-color: #121212;
+}
+.uk-label-muted {
+  background-color: #e9e9e9;
+  color: #888282;
+}
+.uk-button-primary {
+  background-color: #6930c3;
+}
+.uk-button-primary:hover {
+  background-color: #6938c3;
+}
+.uk-button-success {
+  background-color: #80ffdb;
+  color: #121212;
+}
+.uk-button-success:hover {
+  background-color: #80ffdb;
+}
+.uk-button-danger {
+  background-color: #56cfe1;
+  color: #121212;
+}
+.uk-button-danger:hover {
+  background-color: #80ffdb;
+}
+.uk-button-secondary {
+  background-color: #5e60ce;
+}
+.uk-button-secondary:hover {
+  background-color: #5e64ce;
+}
+.uk-navbar-nav .uk-active {
+  border-bottom: 5px solid #6930c3;
+  border-radius: 5px;
+}
+.uk-card {
+  transition: transform 500ms;
+}
+.uk-card:hover {
+  transform: scale(1.1, 1.1);
+}
+.uk-card-title {
+  font-size: 20px !important;
+}
+.uk-card.uk-border-rounded {
+  border-radius: 15px;
+}
+.progress-text {
+  font-size: 1rem;
+}
+.uk-circle {
+  background-color: transparent;
+  width: 40px;
+  height: 38px;
+  margin-bottom: 25px;
+  border-radius: 50%;
+}
+#next_courses .uk-card-header {
+  border-top-left-radius: 15px;
+  border-bottom: none;
+  margin-bottom: 30px;
+}
+#courses > div > a > div {
+  height: 100px !important;
+}
+@media (max-width: 959px) {
+  .course-meta {
+    margin-top: 3rem !important;
+  }
+  #courses .uk-card-title {
+    height: 210px;
+  }
+}
+@media (min-width: 960px) {
+  .course-meta {
+    margin-top: 18vh !important;
+  }
+  #courses .uk-card-title {
+    height: 190px;
+  }
+}
+.course-meta .more {
+  font-size: 15px;
+  padding: 0px;
+}
+.course-meta .more div {
+  margin-bottom: 10px;
+}
+.course-meta ion-icon {
+  font-size: 20px;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+.scroll {
+  overflow: scroll !important;
+  height: 700px;
+}
+.searchsize:hover {
+  transform: scale(1.2, 1.3);
+}
+.searchsize {
+  transition: transform 0.5s ease-out !important;
+}
+::-webkit-input-placeholder {
+  text-align: center;
+}
+:-moz-placeholder {
+  text-align: center;
+}
+.uk-button-watch {
+  height: 150px;
+}
+.uk-card.no-scale {
+  transform: none !important;
+  transition: none !important;
+}
