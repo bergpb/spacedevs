@@ -12,16 +12,6 @@ class User(db.Model):
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True, index=True)
-    pass_hash = db.Column(db.String(150), nullable=False)
+    password = db.Column(db.String(150), nullable=False)
+    is_admin = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-
-    @property
-    def password(self):
-        raise AttributeError("Cannot read this field")
-
-    @password.setter
-    def password(self):
-        self.pass_hash = generate_password_hash(self.pass_hash)
-
-    def compare_password(self, password):
-        return check_password_hash(self.pass_hash, password)
