@@ -2,6 +2,11 @@
 * {
   font-family: "Baloo Thambi 2", cursive !important;
 }
+
+:root {
+  --plyr-color-main: #6930c3 !important;
+}
+
 .site {
   display: flex;
   min-height: 100vh;
@@ -131,7 +136,7 @@
 }
 .scroll {
   overflow: scroll !important;
-  height: 700px;
+  height: 600px;
 }
 .searchsize:hover {
   transform: scale(1.2, 1.3);
