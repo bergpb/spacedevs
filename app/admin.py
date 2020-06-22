@@ -1,9 +1,10 @@
 from flask_admin.contrib.sqla import ModelView
 from werkzeug.security import generate_password_hash
 from wtforms.fields import PasswordField
+from flask_admin import Admin
 
-from .models import User
 from . import db
+from .models import Course, Quote, Tag, User
 
 
 class UserView(ModelView):
@@ -16,5 +17,9 @@ class UserView(ModelView):
         if is_created:
             model.password = generate_password_hash(form.password.data)
 
-def init_app(admin):
+
+def init_app(admin: Admin):
     admin.add_view(UserView(User, db.session))
+    admin.add_view(ModelView(Course, db.session))
+    admin.add_view(ModelView(Quote, db.session))
+    admin.add_view(ModelView(Tag, db.session))
