@@ -55,10 +55,9 @@ def seeds(create_database):
     course.tags.append(tag)
     course.tags.append(tag2)
     course.tags.append(tag3)
-    
+
     db.session.add(course)
     db.session.commit()
 
     db.session.add(Quote(title="1. introduction", quote_time=20, course_id=course.id))
     db.session.commit()
-    
