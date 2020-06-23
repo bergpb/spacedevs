@@ -29,7 +29,11 @@
                     </div>
                     <div>
                       <ion-icon name="book-outline"></ion-icon>
-                      {{ course.quote | length }} aulas
+                      {% if course.quotes %}
+                        {{ course.quote | length }} aulas
+                      {% else %}
+                        1 aula
+                      {% endif %}
                     </div>
                     <div>
                       <ion-icon name="time-outline"></ion-icon>
