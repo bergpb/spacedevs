@@ -33,6 +33,9 @@ class User(db.Model, UserMixin):
     def fullname(self):
         return f"{self.first_name} {self.last_name}"
 
+    def compare_password(self, password):
+        return check_password_hash(self.password, password)
+
     def __str__(self):
         return self.fullname
 
