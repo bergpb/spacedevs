@@ -10,7 +10,6 @@ from werkzeug.security import generate_password_hash
 @fixture
 def app():
     app = create_app()
-    app.testing = True
     return app
 
 

@@ -18,4 +18,5 @@ SQLALCHEMY_DATABASE_URI="sqlite:///dev.db"
 
 [testing]
 TESTING=true
+WTF_CSRF_ENABLED=false
 SQLALCHEMY_DATABASE_URI="sqlite://"
