@@ -11,7 +11,7 @@
     <div class="uk-grid-match" uk-grid>
       <div class="uk-width-1-1@m">
         <div>
-          <h1> {{ course.name }} </h1>
+          <h1 id="name"> {{ course.name }} </h1>
         </div>
       </div>
       <div class="uk-width-1-1@m">
@@ -27,7 +27,7 @@
                 <div class="uk-card-body">
                   <ul class="uk-list uk-list-large uk-list-divider">
                     {% for quote in course.quotes %}
-                      <li>
+                      <li id="{{ quote.title }}">
                         <a onclick="setTime('{{ quote.quote_time }}')" class="uk-link-reset uk-flex uk-flex-between">
                           <span>{{ quote.title }}</span>
                           <span>
@@ -49,7 +49,7 @@
             <h3 class="uk-card-title uk-margin-remove-bottom">
               Descrição
             </h3>
-            <p>
+            <p id="description">
               {{ course.description | safe }}
             </p>
           </div>
@@ -59,7 +59,7 @@
         <div class="uk-card no-scale uk-card-default uk-card-body uk-border-rounded">
           <div>
             <div class="uk-margin-large-bottom">
-              <span class="uk-text-meta">
+              <span class="uk-text-meta" id="{{ duration }}">
                 <ion-icon name="time-outline"></ion-icon>
                 {{ course.duration }} minutos
               </span>           
@@ -67,13 +67,13 @@
             
             <div class="uk-button-watch">
               <div class="uk-margin">
-                <a href="{{ course.source_code_url }}" class="uk-button uk-width-1-1@s uk-button-secondary">
+                <a href="{{ course.source_code_url }}" class="uk-button uk-width-1-1@s uk-button-secondary" id="source_code_url">
                   <span uk-icon="code"></span>
                   Código Fonte
                 </a>
               </div>
               <div class="uk-margin">
-                <a href="{{ course.video_url }}" class="uk-button uk-width-1-1@s uk-button-danger">
+                <a href="{{ course.video_url }}" class="uk-button uk-width-1-1@s uk-button-danger" id="download">
                   <span uk-icon="download"></span>
                   Baixar aula
                 </a>
@@ -82,7 +82,7 @@
 
             <div class="meta-labels">
               {% for tag in course.tags %}
-               <span class="uk-label uk-label-muted">{{ tag.name }}</span>
+               <span class="uk-label uk-label-muted" id="{{ tag.name }}">{{ tag.name }}</span>
               {% endfor %}
             </div>
           </div>
