@@ -54,30 +54,24 @@
       <div class="uk-width-1-4@m">
         <div class="uk-card no-scale uk-card-default uk-card-body uk-border-rounded">
           <div>
-            <div class="uk-flex uk-flex-between uk-margin-large-bottom">
+            <div class="uk-margin-large-bottom">
               <span class="uk-text-meta">
                 <ion-icon name="time-outline"></ion-icon>
                 {{ course.duration }} minutos
-              </span>
-              <span class="uk-text-meta">
-                <ion-icon name="calendar-outline"></ion-icon>
-                <span class="uk-text-top">
-                  Atualizado: 06/2020
-                </span>
-              </span>
+              </span>           
             </div>         
             
             <div class="uk-button-watch">
               <div class="uk-margin">
-                <a href="{{ course.source_code_url }}" class="uk-button uk-width-1-1@m uk-button-secondary">
+                <a href="{{ course.source_code_url }}" class="uk-button uk-width-1-1@s uk-button-secondary">
                   <span uk-icon="code"></span>
                   Código Fonte
                 </a>
               </div>
               <div class="uk-margin">
-                <a href="{{ course.video_url }}" class="uk-button uk-width-1-1@m uk-button-danger">
+                <a href="{{ course.video_url }}" class="uk-button uk-width-1-1@s uk-button-danger">
                   <span uk-icon="download"></span>
-                  Download Curso
+                  Baixar aula
                 </a>
               </div>
             </div>
