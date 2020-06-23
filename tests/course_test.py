@@ -1,6 +1,4 @@
-from bs4 import BeautifulSoup
 from flask import url_for
-from tests.tools import normalize_text
 
 
 def test_course_page_returns_status_code_200(client):
