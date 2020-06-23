@@ -2,6 +2,13 @@
 FLASK_ADMIN_SWATCH = "cosmo"
 SQLALCHEMY_TRACK_MODIFICATIONS=false
 
+EXTENSIONS = [
+  "flask_babel:Babel",
+  "app.routes:init_app",
+  "app.admin:init_app",
+  "app.filters:init_app",
+]
+
 
 [development]
 DEBUG=true
