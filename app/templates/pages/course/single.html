@@ -10,15 +10,19 @@
   <div class="uk-container uk-container-expand">
     <div class="uk-grid-match" uk-grid>
       <div class="uk-width-1-1@m">
+        <div>
+          <h1> {{ course.name }} </h1>
+        </div>
+      </div>
+      <div class="uk-width-1-1@m">
         <div uk-grid class="uk-grid-small">
           <div class="uk-width-expand@m">
-            <div class="uk-padding-small">
-              <h1> {{ course.name }} </h1>
-              <video src="{{ url_for('static', filename='media/filters.mp4') }}" id="player" controls playsinline></video>
+            <div class="uk-padding-remove">
+              <video src="{{ course.video_url }}" id="player" controls playsinline></video>
             </div>
           </div>
           {% if course.quotes %}
-            <div class="uk-width-1-4@m">
+            <div class="uk-width-1-5@m">
               <div class="uk-card no-scale uk-card-default scroll">
                 <div class="uk-card-body">
                   <ul class="uk-list uk-list-large uk-list-divider">
@@ -51,7 +55,7 @@
           </div>
         </div>
       </div>
-      <div class="uk-width-1-4@m">
+      <div class="uk-width-1-5@m">
         <div class="uk-card no-scale uk-card-default uk-card-body uk-border-rounded">
           <div>
             <div class="uk-margin-large-bottom">
@@ -94,14 +98,14 @@
 <script src="https://cdn.plyr.io/3.6.2/plyr.js"></script>
 <script>
   window.onload = function() {
-    let player = new Plyr('#player', {
-      autoplay: true,
-    });
-    player.currentTime = parseInt(localStorage.getItem("currentTime") || 0);
+    let player = new Plyr('#player');
+
+    if("{{course.slug}}-time")
+      player.currentTime = parseInt(localStorage.getItem("{{course.slug}}-time") || 0);
   }
  
   window.onbeforeunload = function(e) {
-    localStorage.setItem("currentTime", player.currentTime);
+    localStorage.setItem("{{course.slug}}-time", player.currentTime);
   }
 
   function setTime(seconds) {
