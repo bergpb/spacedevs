@@ -12,28 +12,30 @@
       <div class="uk-width-1-1@m">
         <div uk-grid class="uk-grid-small">
           <div class="uk-width-expand@m">
-            <div class="uk-card no-scale uk-card-default uk-border-rounded uk-card-body uk-padding-small">
+            <div class="u -padding-small">
               <video src="{{ url_for('static', filename='media/filters.mp4') }}" id="player" controls playsinline></video>
             </div>
           </div>
-          <div class="uk-width-1-4@m">
-            <div class="uk-card no-scale uk-card-default scroll">
-              <div class="uk-card-body">
-                <ul class="uk-list uk-list-large uk-list-divider">
-                  {% for quote in course.quotes %}
-                    <li>
-                      <a onclick="setTime('{{ quote.quote_time }}')" class="uk-link-reset uk-flex uk-flex-between">
-                        <span>{{ quote.title }}</span>
-                        <span>
-                          {{ quote.quote_time | format_time_to_string }}
-                        </span>
-                      </a>
-                    </li>
-                  {% endfor %}              
-                </ul>
+          {% if course.quotes %}
+            <div class="uk-width-1-4@m">
+              <div class="uk-card no-scale uk-card-default scroll">
+                <div class="uk-card-body">
+                  <ul class="uk-list uk-list-large uk-list-divider">
+                    {% for quote in course.quotes %}
+                      <li>
+                        <a onclick="setTime('{{ quote.quote_time }}')" class="uk-link-reset uk-flex uk-flex-between">
+                          <span>{{ quote.title }}</span>
+                          <span>
+                            {{ quote.quote_time | format_time_to_string }}
+                          </span>
+                        </a>
+                      </li>
+                    {% endfor %}              
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
+          {% endif %}
         </div>
       </div>
       <div class="uk-width-expand@m">
