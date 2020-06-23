@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="uk-section uk-section-large uk-section-muted">
+  <div class="uk-container uk-container-expand">
+    <div class="uk-flex uk-flex-center" uk-grid>
+      <div class="uk-width-1-3@m">
+        <h3 class="uk-text-center">Área do aluno</h3>
+        <div class="uk-card no-scale uk-card-default uk-border-rounded uk-box-shadow-large">
+          <div class="uk-card-body">
+            <form method="POST">
+              {{ form.csrf_token }}
+              <div class="uk-margin" uk-margin>
+                {{ form.email(class_="uk-input uk-form-large", placeholder="Insira um e-mail" )}}
+              </div>
+
+              <div class="uk-margin" uk-margin>
+                {{ form.password(class_="uk-input uk-form-large", placeholder="*****" )}}
+              </div>
+
+              <div class="uk-margin" uk-margin>
+                {{ form.submit(class_="uk-button uk-width-1-1@m uk-button-success" )}}
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

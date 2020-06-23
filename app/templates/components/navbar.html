@@ -6,6 +6,7 @@
 
         <ul class="uk-navbar-nav uk-visible@m">
           <li class="{{'uk-active' if request.endpoint == 'home.page' else ''}}"><a href="{{url_for('home.page')}}">Home</a></li>
+          <li class="{{'uk-active' if request.endpoint == 'login.page' else ''}}"><a href="{{url_for('login.page')}}">Login</a></li>
         </ul>
       </div>
     </nav>
