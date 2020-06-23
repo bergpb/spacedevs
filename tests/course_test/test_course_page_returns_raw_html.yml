@@ -12,29 +12,23 @@
   >\n    \n<section class=\"uk-section uk-section uk-section-muted\">\n  <div class=\"\
   uk-container uk-container-expand\">\n    <div class=\"uk-grid-match\" uk-grid>\n\
   \      <div class=\"uk-width-1-1@m\">\n        <div uk-grid class=\"uk-grid-small\"\
-  >\n          <div class=\"uk-width-expand@m\">\n            <div class=\"uk-card\
-  \ no-scale uk-card-default uk-border-rounded uk-card-body uk-padding-small\">\n\
-  \              <video src=\"/static/media/filters.mp4\" id=\"player\" controls playsinline></video>\n\
-  \            </div>\n          </div>\n          <div class=\"uk-width-1-4@m\">\n\
-  \            <div class=\"uk-card no-scale uk-card-default scroll\">\n         \
-  \     <div class=\"uk-card-body\">\n                <ul class=\"uk-list uk-list-large\
-  \ uk-list-divider\">\n                                \n                </ul>\n\
-  \              </div>\n            </div>\n          </div>\n        </div>\n  \
-  \    </div>\n      <div class=\"uk-width-expand@m\">\n        <div class=\"uk-card\
-  \ no-scale uk-card-large uk-card-default uk-card-body uk-border-rounded\">\n   \
-  \       <div>\n            <h3 class=\"uk-card-title uk-margin-remove-bottom\">\n\
-  \              Descrição\n            </h3>\n            <p>\n              alguma\
+  >\n          <div class=\"uk-width-expand@m\">\n            <div class=\"uk-padding-small\"\
+  >\n              <h1> Curso de test </h1>\n              <video src=\"/static/media/filters.mp4\"\
+  \ id=\"player\" controls playsinline></video>\n            </div>\n          </div>\n\
+  \          \n        </div>\n      </div>\n      <div class=\"uk-width-expand@m\"\
+  >\n        <div class=\"uk-card no-scale uk-card-large uk-card-default uk-card-body\
+  \ uk-border-rounded\">\n          <div>\n            <h3 class=\"uk-card-title uk-margin-remove-bottom\"\
+  >\n              Descrição\n            </h3>\n            <p>\n              alguma\
   \ coisa...\n            </p>\n          </div>\n        </div>\n      </div>\n \
   \     <div class=\"uk-width-1-4@m\">\n        <div class=\"uk-card no-scale uk-card-default\
   \ uk-card-body uk-border-rounded\">\n          <div>\n            <div class=\"\
   uk-flex uk-flex-between uk-margin-large-bottom\">\n              <span class=\"\
   uk-text-meta\">\n                <ion-icon name=\"time-outline\"></ion-icon>\n \
-  \               <span class=\"uk-text-top\">\n                  300 minutos\n  \
-  \              </span>\n              </span>\n              <span class=\"uk-text-meta\"\
-  >\n                <ion-icon name=\"calendar-outline\"></ion-icon>\n           \
-  \     <span class=\"uk-text-top\">\n                  Atualizado: 06/2020\n    \
-  \            </span>\n              </span>\n            </div>         \n     \
-  \       \n            <div class=\"uk-button-watch\">\n              <div class=\"\
+  \               300 minutos\n              </span>\n              <span class=\"\
+  uk-text-meta\">\n                <ion-icon name=\"calendar-outline\"></ion-icon>\n\
+  \                <span class=\"uk-text-top\">\n                  Atualizado: 06/2020\n\
+  \                </span>\n              </span>\n            </div>         \n \
+  \           \n            <div class=\"uk-button-watch\">\n              <div class=\"\
   uk-margin\">\n                <a href=\"http://fake:4000\" class=\"uk-button uk-width-1-1@m\
   \ uk-button-secondary\">\n                  <span uk-icon=\"code\"></span>\n   \
   \               Código Fonte\n                </a>\n              </div>\n     \
