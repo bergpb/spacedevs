@@ -8,11 +8,12 @@
   \ uk-navbar>\n      <div class=\"uk-navbar-left\">\n        <a class=\"uk-navbar-toggle\
   \ uk-hidden@s\" uk-navbar-toggle-icon href=\"\"></a>\n\n        <ul class=\"uk-navbar-nav\
   \ uk-visible@m\">\n          <li class=\"\"><a href=\"/\">Home</a></li>\n      \
-  \  </ul>\n      </div>\n    </nav>\n  </div>\n</div>\n\n  <main class=\"site-container\"\
-  >\n    \n<section class=\"uk-section uk-section uk-section-muted\">\n  <div class=\"\
-  uk-container uk-container-expand\">\n    <div class=\"uk-grid-match\" uk-grid>\n\
-  \      <div class=\"uk-width-1-1@m\">\n        <div uk-grid class=\"uk-grid-small\"\
-  >\n          <div class=\"uk-width-expand@m\">\n            <div class=\"uk-padding-small\"\
+  \    <li class=\"\"><a href=\"/login\">Login</a></li>\n        </ul>\n      </div>\n\
+  \    </nav>\n  </div>\n</div>\n\n  <main class=\"site-container\">\n    \n<section\
+  \ class=\"uk-section uk-section uk-section-muted\">\n  <div class=\"uk-container\
+  \ uk-container-expand\">\n    <div class=\"uk-grid-match\" uk-grid>\n      <div\
+  \ class=\"uk-width-1-1@m\">\n        <div uk-grid class=\"uk-grid-small\">\n   \
+  \       <div class=\"uk-width-expand@m\">\n            <div class=\"uk-padding-small\"\
   >\n              <h1> Curso de test </h1>\n              <video src=\"/static/media/filters.mp4\"\
   \ id=\"player\" controls playsinline></video>\n            </div>\n          </div>\n\
   \          \n        </div>\n      </div>\n      <div class=\"uk-width-expand@m\"\
