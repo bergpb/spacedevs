@@ -12,7 +12,8 @@
       <div class="uk-width-1-1@m">
         <div uk-grid class="uk-grid-small">
           <div class="uk-width-expand@m">
-            <div class="u -padding-small">
+            <div class="uk-padding-small">
+              <h1> {{ course.name }} </h1>
               <video src="{{ url_for('static', filename='media/filters.mp4') }}" id="player" controls playsinline></video>
             </div>
           </div>
@@ -56,9 +57,7 @@
             <div class="uk-flex uk-flex-between uk-margin-large-bottom">
               <span class="uk-text-meta">
                 <ion-icon name="time-outline"></ion-icon>
-                <span class="uk-text-top">
-                  {{ course.duration }} minutos
-                </span>
+                {{ course.duration }} minutos
               </span>
               <span class="uk-text-meta">
                 <ion-icon name="calendar-outline"></ion-icon>
