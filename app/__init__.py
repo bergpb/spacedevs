@@ -1,15 +1,19 @@
 from dynaconf import FlaskDynaconf
 from flask import Flask
 from flask_admin import Admin
+from flask_babel import Babel
+from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 
-
 db = SQLAlchemy()
+login_manager = LoginManager()
 
 
 def create_app():
     app = Flask(__name__)
     FlaskDynaconf(app)
+    Babel(app)
+    login_manager.init_app(app)
 
     db.init_app(app)
 

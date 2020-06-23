@@ -1,8 +1,9 @@
 from datetime import datetime
 
+from flask_login import UserMixin
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from . import db
+from . import db, login_manager
 
 courses_tags = db.Table(
     "courses_tags",
@@ -11,7 +12,12 @@ courses_tags = db.Table(
 )
 
 
-class User(db.Model):
+@login_manager.user_loader
+def get_user(user_id):
+    return User.query.get(user_id)
+
+
+class User(db.Model, UserMixin):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
