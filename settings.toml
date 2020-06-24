@@ -17,6 +17,7 @@ SQLALCHEMY_DATABASE_URI="sqlite:///dev.db"
 SQLALCHEMY_DATABASE_URI="@format {env[DB_CONNECTION]}"
 
 [testing]
+SECRET_KEY="testing"
 TESTING=true
 WTF_CSRF_ENABLED=false
 SQLALCHEMY_DATABASE_URI="sqlite://"
