@@ -10,14 +10,16 @@ services:
     depends_on:
       - app
   app:
-    image: marcuspereira/spacedevs:1.0.0
+    image: marcuxyz/spacedevs:1.0.0
     container_name: spacedevs-app
     restart: always
     volumes:
       - static_volume:/home/app/app/static
     command: gunicorn -b 0.0.0.0:4000 -w 8 "app:create_app()"
     environment:
-      FLASK_ENV: production
+      FLASK_ENV: ${FLASK_ENV}
+      DB_CONNECTION: ${DB_CONNECTION}
+      SECRET_KEY: ${SECRET_KEY}
     depends_on:
       - db
     logging:
@@ -32,9 +34,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      POSTGRES_USER: docker
-      POSTGRES_PASSWORD: docker
-      POSTGRES_DB: spacedevs
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
 
 volumes:
   static_volume:
