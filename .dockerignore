@@ -1,0 +1,9 @@
+.venv
+.github
+.tests
+.env
+.secrets*
+makefile
+*.db
+*.sqlite
+nginx

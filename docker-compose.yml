@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_volume:/home/app/app/static
+    ports:
+      - 80:80
+    depends_on:
+      - app
+  app:
+    image: marcuspereira/spacedevs:1.0.0
+    container_name: spacedevs-app
+    restart: always
+    volumes:
+      - static_volume:/home/app/app/static
+    command: gunicorn -b 0.0.0.0:4000 -w 8 "app:create_app()"
+    environment:
+      FLASK_ENV: production
+    depends_on:
+      - db
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+  db:
+    image: postgres:10
+    container_name: spacedevs-db
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: spacedevs
+
+volumes:
+  static_volume:
+  postgres_data:
