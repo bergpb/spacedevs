@@ -17,4 +17,6 @@ def test_login_page(client):
         "password": "12345",
     }
     resp = client.post(url_for("login.page"), data=data, follow_redirects=True)
+
+    # redirect to home page.
     assert "Cursos Recentes" in resp.get_data(as_text=True)
