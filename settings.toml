@@ -9,12 +9,12 @@ EXTENSIONS = [
   "app.filters:init_app",
 ]
 
-
 [development]
 DEBUG=true
 SQLALCHEMY_DATABASE_URI="sqlite:///dev.db"
 
 [production]
+SQLALCHEMY_DATABASE_URI="@format {env[DB_CONNECTION]}"
 
 [testing]
 TESTING=true
