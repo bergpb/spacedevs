@@ -57,9 +57,9 @@ class QuoteView(BaseViewAuthRequired):
 def init_app(app):
     admin = Admin(
         app,
-        url=app.config.ADMIN_URL,
+        url=app.config.FLASK_ADMIN_URL,
         name=app.config.FLASK_ADMIN_NAME,
-        index_view=MyAdminView(url=app.config.ADMIN_URL),
+        index_view=MyAdminView(url=app.config.FLASK_ADMIN_URL),
     )
 
     admin.add_view(UserView(User, db.session))

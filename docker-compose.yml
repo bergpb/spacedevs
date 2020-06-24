@@ -20,6 +20,7 @@ services:
       FLASK_ENV: ${FLASK_ENV}
       DB_CONNECTION: ${DB_CONNECTION}
       SECRET_KEY: ${SECRET_KEY}
+      FLASK_ADMIN_URL: ${FLASK_ADMIN_URL}
     depends_on:
       - db
     logging:
