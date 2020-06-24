@@ -1,10 +1,10 @@
 .PYHONY: test
 test:
-	@pytest -vv
+	FLASK_ENV=testing pytest -vv
 
 .PYHONY: up-test
 up-test:
-	@pytest --force-regen
+	FLASK_ENV=testing @pytest --force-regen
 
 .PYHONY: check-format
 check-format:
