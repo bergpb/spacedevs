@@ -33,3 +33,5 @@ jobs:
       env:
         FLASK_APP: app:create_app
         FLASK_ENV: testing
+        FLASK_ADMIN_URL: "/admin"
+        SECRET_KEY: "testing"
