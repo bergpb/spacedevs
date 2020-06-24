@@ -15,10 +15,10 @@ def page():
         user = User.query.filter_by(email=form.email.data).first()
 
         if not user:
-            return redirect(url_for(".login"))
+            return redirect(url_for(".page"))
 
         if not user.compare_password(form.password.data):
-            return redirect(url_for(".login"))
+            return redirect(url_for(".page"))
 
         login_user(user)
         return redirect(url_for("home.page"))
