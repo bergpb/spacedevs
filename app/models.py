@@ -21,8 +21,7 @@ class User(db.Model, UserMixin):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(50), nullable=False)
-    last_name = db.Column(db.String(50), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True, index=True)
     password = db.Column(db.String(150), nullable=False)
     is_admin = db.Column(db.Boolean, default=False)
@@ -31,7 +30,7 @@ class User(db.Model, UserMixin):
 
     @property
     def fullname(self):
-        return f"{self.first_name} {self.last_name}"
+        return f"{self.name}"
 
     def compare_password(self, password):
         return check_password_hash(self.password, password)
