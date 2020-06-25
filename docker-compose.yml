@@ -2,6 +2,7 @@ version: "3"
 
 services:
   nginx:
+    container_name: nginx
     build: ./nginx
     volumes:
       - static_volume:/home/app/app/static
@@ -11,16 +12,12 @@ services:
       - app
   app:
     image: marcuxyz/spacedevs:1.0.0
-    container_name: spacedevs-app
+    container_name: app
     restart: always
     volumes:
       - static_volume:/home/app/app/static
     command: gunicorn -b 0.0.0.0:4000 -w 8 "app:create_app()"
-    environment:
-      FLASK_ENV: ${FLASK_ENV}
-      DB_CONNECTION: ${DB_CONNECTION}
-      SECRET_KEY: ${SECRET_KEY}
-      FLASK_ADMIN_URL: ${FLASK_ADMIN_URL}
+    env_file: ./environments/app.env
     depends_on:
       - db
     logging:
@@ -29,16 +26,12 @@ services:
         max-size: "10m"
         max-file: "5"
   db:
-    image: postgres:10
-    container_name: spacedevs-db
+    image: postgres:12-alpine
+    container_name: db
     restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-
+    env_file: ./environments/db.env
 volumes:
   static_volume:
   postgres_data:
