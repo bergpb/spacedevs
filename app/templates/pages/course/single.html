@@ -18,7 +18,7 @@
         <div uk-grid class="uk-grid-small">
           <div class="uk-width-expand@m">
             <div class="uk-padding-remove">
-              <video src="{{ course.video_url }}" id="player" controls playsinline></video>
+              <div id="player" data-plyr-provider="vimeo" data-plyr-embed-id="{{ course.video_url }}"></div>
             </div>
           </div>
           {% if course.quotes %}
@@ -99,7 +99,6 @@
 <script>
   window.onload = function() {
     let player = new Plyr('#player');
-
     if("{{course.slug}}-time")
       player.currentTime = parseInt(localStorage.getItem("{{course.slug}}-time") || 0);
   }
