@@ -17,7 +17,7 @@ def db():
 @click.option("--email", help="Your e-mail address", required=True)
 @click.option("--password", help="Your password", required=True)
 @with_appcontext
-def create(name, last_name, email, cpf, password):
+def create(name, email, password):
     """ Create account """
     user = User(
         name=name,
