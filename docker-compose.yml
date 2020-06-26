@@ -1,37 +1,28 @@
 version: "3"
 
 services:
-  nginx:
-    container_name: nginx
+  web:
+    container_name: web
     build: ./nginx
     volumes:
       - static_volume:/home/app/app/static
     ports:
-      - 80:80
+      - 8080:80
     depends_on:
       - app
   app:
-    image: marcuxyz/spacedevs:1.0.0
+    build: .
     container_name: app
     restart: always
     volumes:
       - static_volume:/home/app/app/static
+      - .:/home/app
     command: gunicorn -b 0.0.0.0:4000 -w 8 "app:create_app()"
     env_file: ./environments/app.env
-    depends_on:
-      - db
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
         max-file: "5"
-  db:
-    image: postgres:12-alpine
-    container_name: db
-    restart: always
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-    env_file: ./environments/db.env
 volumes:
   static_volume:
-  postgres_data:
