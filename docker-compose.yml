@@ -16,7 +16,6 @@ services:
     restart: always
     volumes:
       - static_volume:/home/app/app/static
-      - .:/home/app
     command: gunicorn -b 0.0.0.0:4000 -w 8 "app:create_app()"
     env_file: ./environments/app.env
     logging:
