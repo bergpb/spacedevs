@@ -43,7 +43,12 @@ class UserView(BaseViewAuthRequired):
 
 
 class CourseView(BaseViewAuthRequired):
-    pass
+    form_widget_args = dict(
+        description={"id": "editor"}
+    )
+
+    create_template = "/components/editor.html"
+    edit_template = "components/editor.html"
 
 
 class TagView(BaseViewAuthRequired):
