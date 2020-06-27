@@ -64,6 +64,7 @@ def init_app(app):
         app,
         url=app.config.FLASK_ADMIN_URL,
         name=app.config.FLASK_ADMIN_NAME,
+        template_mode=app.config.FLASK_ADMIN_TEMPLATE_MODE,
         index_view=MyAdminView(url=app.config.FLASK_ADMIN_URL),
     )
 
