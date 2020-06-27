@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block content %} {% if courses %}
+<section class="uk-section uk-section-muted uk-section-large">
+  <div class="uk-container uk-container-large">
+    <div>
+      <h2 class="uk-margin-large-bottom">
+        Todos os Cursos
+      </h2>
+    </div>
+    <div class="uk-child-width-1-4@m uk-grid-match" id="courses" uk-grid>
+      {% for course in courses %}
+      <div>
+        <a
+          class="uk-display-block uk-link-toggle uk-card uk-card-large uk-card-default uk-card-body uk-border-rounded"
+          href="{{ url_for('course_page.single', slug=course.slug) }}"
+        >
+          <div>
+            <h3 class="uk-card-title uk-margin-remove-bottom">
+              <div
+                class="uk-circle uk-background-danger uk-margin-medium-bottom"
+              ></div>
+              {{ course.name }}
+            </h3>
+            <div>
+							{% for tag in course.tags %}
+              <span class="uk-label uk-label-muted">{{ tag.name }}</span>
+							{% endfor %}
+            </div>
+          </div>
+          <div class="uk-flex uk-flex-between course-meta">
+            <div class="more uk-text-left">
+              <div>
+                <ion-icon name="person-outline"></ion-icon>
+                {{ course.author.fullname }}
+              </div>
+              <div>
+                <ion-icon name="book-outline"></ion-icon>
+                {% if course.quotes %} {{ course.quote | length }} aulas {% else
+                %} 1 aula {% endif %}
+              </div>
+              <div>
+                <ion-icon name="time-outline"></ion-icon>
+                {{ course.duration }} minutos
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% else %}
+<section class="uk-section uk-section-default uk-section-large">
+  <h1 class="uk-text-center">Em breve traremos cursos online.</h1>
+</section>
+{% endif %} {% endblock %}
