@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spacedevs - Cursos de programação online</title>
-  
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/uikit.css') }}" />
-  {% block css %}{% endblock %}
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}" />
+  <link rel="stylesheet" href="https://saturnos3.us-east-1.linodeobjects.com/all.css" />
 </head>
 <body class="site">
   {% include "components/navbar.html" %}
@@ -18,10 +15,8 @@
 
   {% include "components/footer.html" %}
   
-  <script src="{{ url_for('static', filename='js/uikit.js') }}"></script>
+  <script src="https://saturnos3.us-east-1.linodeobjects.com/all.js"></script>
   <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
-  <script src="{{ url_for('static', filename='js/icons.js') }}"></script>
-  
   {% block scripts %}{% endblock %}
 </body>
 </html> 
