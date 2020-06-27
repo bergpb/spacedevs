@@ -26,10 +26,10 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Qualidade do formato do código
       run: |
-        make check-format
+        make check
     - name: Testando Aplicação
       run: |
-        make cov
+        make coverage
       env:
         FLASK_APP: app:create_app
         FLASK_ADMIN_URL: "/admin"

@@ -2,16 +2,16 @@
 test:
 	FLASK_ENV=testing pytest -vv
 
-.PYHONY: cov
+.PYHONY: coverage
 cov:
 	FLASK_ENV=testing pytest -vv --cov=app/ && coveralls
 
-.PYHONY: up-test
-up-test:
+.PYHONY: update-test
+update-test:
 	FLASK_ENV=testing @pytest --force-regen
 
-.PYHONY: check-format
-check-format:
+.PYHONY: check
+check:
 	@black . --check --exclude=".venv"
 
 .PYHONY: format
