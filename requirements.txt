@@ -11,3 +11,5 @@ pytest-flask==1.0.0
 email-validator==1.1.1
 psycopg2-binary==2.8.5
 black==19.10b0
+pytest-cov==2.10.0
+coveralls==2.0.0
