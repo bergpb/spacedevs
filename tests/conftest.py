@@ -27,8 +27,7 @@ def create_database(app):
 @fixture(autouse=True)
 def seeds(create_database):
     user = User(
-        first_name="Marcus",
-        last_name="Pereira",
+        name="Marcus Pereira",
         email="contato@marcuspereira.xyz",
         password=generate_password_hash("12345"),
         is_admin=True,

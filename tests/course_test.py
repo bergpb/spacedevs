@@ -13,11 +13,6 @@ def test_course_single_page_contains_tags(client):
     assert "flask" in resp.get_data(as_text=True)
 
 
-def test_course_single_page_contains_quotes(client):
-    resp = client.get(url_for("course_page.single", slug="curso-de-test"))
-    assert "1. introduction" in resp.get_data(as_text=True)
-
-
 def test_course_single_page_contains_name(client):
     resp = client.get(url_for("course_page.single", slug="curso-de-test"))
     assert "Curso de test" in resp.get_data(as_text=True)
@@ -36,8 +31,3 @@ def test_course_single_page_contains_video(client):
 def test_course_single_page_contain_source_code_url(client):
     resp = client.get(url_for("course_page.single", slug="curso-de-test"))
     assert "/source" in resp.get_data(as_text=True)
-
-
-def test_course_single_page_contain_duration(client):
-    resp = client.get(url_for("course_page.single", slug="curso-de-test"))
-    assert "300 minutos" in resp.get_data(as_text=True)
