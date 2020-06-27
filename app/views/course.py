@@ -7,7 +7,8 @@ course = Blueprint("course_page", __name__, url_prefix="/cursos")
 
 @course.route("/")
 def catalogue():
-    return render_template("pages/course/catalogue.html")
+    courses = Course.query.all()
+    return render_template("pages/course/catalogue.html", courses=courses)
 
 
 @course.route("/<slug>")
