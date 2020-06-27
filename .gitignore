@@ -5,3 +5,4 @@ __pycache__
 .secrets.toml
 *.env
 media
+.pytest_cache
