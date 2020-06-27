@@ -35,8 +35,3 @@ jobs:
         FLASK_ADMIN_URL: "/admin"
         SECRET_KEY: "testing"
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
