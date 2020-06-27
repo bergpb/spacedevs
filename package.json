@@ -1,0 +1,16 @@
+{
+  "name": "spacedevs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:marcuxyz/spacedevs.git",
+  "author": "Marcus Pereira <mpereirassa@gmail.com>",
+  "license": "GPL3",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^3.0.2"
+  }
+}
