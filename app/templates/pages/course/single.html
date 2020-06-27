@@ -7,7 +7,7 @@
 
 {% block content %}
 <section class="uk-section uk-section uk-section-muted">
-  <div class="uk-container uk-container-expand">
+  <div class="uk-container uk-container-large">
     <div class="uk-grid-match" uk-grid>
       <div class="uk-width-1-1@m">
         <div>
@@ -18,29 +18,9 @@
         <div uk-grid class="uk-grid-small">
           <div class="uk-width-expand@m">
             <div class="uk-padding-remove">
-              <div id="player" data-plyr-provider="vimeo" data-plyr-embed-id="{{ course.video_url }}"></div>
+              <div id="player"></div>
             </div>
           </div>
-          {% if course.quotes %}
-            <div class="uk-width-1-5@m">
-              <div class="uk-card no-scale uk-card-default scroll">
-                <div class="uk-card-body">
-                  <ul class="uk-list uk-list-large uk-list-divider">
-                    {% for quote in course.quotes %}
-                      <li id="{{ quote.title }}">
-                        <a onclick="setTime('{{ quote.quote_time }}')" class="uk-link-reset uk-flex uk-flex-between">
-                          <span>{{ quote.title }}</span>
-                          <span>
-                            {{ quote.quote_time | format_time_to_string }}
-                          </span>
-                        </a>
-                      </li>
-                    {% endfor %}              
-                  </ul>
-                </div>
-              </div>
-            </div>
-          {% endif %}
         </div>
       </div>
       <div class="uk-width-expand@m">
@@ -56,33 +36,26 @@
         </div>
       </div>
       <div class="uk-width-1-5@m">
-        <div class="uk-card no-scale uk-card-default uk-card-body uk-border-rounded">
+        <div>
           <div>
-            <div class="uk-margin-large-bottom">
-              <span class="uk-text-meta" id="{{ duration }}">
-                <ion-icon name="time-outline"></ion-icon>
-                {{ course.duration }} minutos
-              </span>           
-            </div>         
-            
             <div class="uk-button-watch">
               <div class="uk-margin">
-                <a href="{{ course.source_code_url }}" class="uk-button uk-width-1-1@s uk-button-secondary" id="source_code_url">
+                <a href="{{ course.source_code_url }}" class="uk-button uk-width-1-1@s uk-button-secondary">
                   <span uk-icon="code"></span>
                   Código Fonte
                 </a>
               </div>
-              <div class="uk-margin">
-                <a href="{{ course.video_url }}" class="uk-button uk-width-1-1@s uk-button-danger" id="download">
-                  <span uk-icon="download"></span>
-                  Baixar aula
+              <div class="uk-margin" uk-margin>
+                <a href="https://app.picpay.com/user/spacedevs" class="uk-button uk-button-success uk-width-1-1@s">
+                  <span uk-icon="bolt"></span>
+                  PAGUE UM CAFÉ
                 </a>
               </div>
             </div>
 
             <div class="meta-labels">
               {% for tag in course.tags %}
-               <span class="uk-label uk-label-muted" id="{{ tag.name }}">{{ tag.name }}</span>
+               <span class="uk-label uk-label-muted">{{ tag.name }}</span>
               {% endfor %}
             </div>
           </div>
@@ -95,21 +68,12 @@
 
 
 {% block scripts %}
-<script src="https://cdn.plyr.io/3.6.2/plyr.js"></script>
+<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
-  window.onload = function() {
-    let player = new Plyr('#player');
-    if("{{course.slug}}-time")
-      player.currentTime = parseInt(localStorage.getItem("{{course.slug}}-time") || 0);
-  }
- 
-  window.onbeforeunload = function(e) {
-    localStorage.setItem("{{course.slug}}-time", player.currentTime);
-  }
-
-  function setTime(seconds) {
-    player.currentTime = seconds;
-  }
-
+    var options = {
+        id: '{{ course.video_url }}',
+        responsive: true,
+    };
+    var madeInNy = new Vimeo.Player('player', options);
 </script>
 {%endblock%}
