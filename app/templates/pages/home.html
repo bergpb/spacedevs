@@ -20,6 +20,11 @@
                     <div class="uk-circle uk-background-danger uk-margin-medium-bottom"></div>
                     {{ course.name  }}
                   </h3>
+                  <div>
+                    {% for tag in course.tags %}
+                    <span class="uk-label uk-label-muted">{{ tag.name }}</span>
+                    {% endfor %}
+                  </div>
                 </div>
                 <div class="uk-flex uk-flex-between course-meta">
                   <div class="more uk-text-left">
