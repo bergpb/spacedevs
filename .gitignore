@@ -6,3 +6,6 @@ __pycache__
 *.env
 media
 .pytest_cache
+node_modules
+dist
+.coverage
