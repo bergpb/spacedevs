@@ -2,7 +2,7 @@
 test:
 	FLASK_ENV=testing pytest -vv
 
-.PYHONY: coverage
+.PYHONY: cov
 cov:
 	FLASK_ENV=testing pytest -vv --cov=app/ && coveralls
 
